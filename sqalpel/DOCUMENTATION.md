@@ -2,7 +2,7 @@ The BabyBench is the 'hello-world' example to demonstrate and test the functiona
 #### Database schema
 The database is described in TPC-H. Beware that most database systems use a slightly different type system and syntax. Being aware of the consequences in terms of performance is crucial
 
-##### Auxiliary structures
+#### Auxiliary structures
 To speed up processing of database queries, a good choice of search accelerators may help.
 
 #### Baseline queries
