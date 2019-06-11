@@ -291,11 +291,8 @@ experiments :
                 group by
                         c_custkey
             ) as c_orders (c_custkey, c_count)
-           group by
-            c_count
-           order by
-            custdist desc,
-            c_count desc;
+            group by c_count
+            order by custdist desc, c_count desc;
           
   - name : Q14
     source : |
