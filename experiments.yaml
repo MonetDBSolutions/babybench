@@ -1,4 +1,4 @@
-exmperiments :
+experiments :
   - name : Q01
   - source : select
             l_returnflag,
