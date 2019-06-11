@@ -1,6 +1,6 @@
 exmperiment :
-  - name:   Q01
-  - source: select
+  - name : Q01
+  - source : select
             l_returnflag,
             l_linestatus,
             sum(l_quantity) as sum_qty,
@@ -16,8 +16,8 @@ exmperiment :
           group by l_returnflag, l_linestatus
           order by l_returnflag, l_linestatus;
           
-  - name:   Q02
-  - source: select
+  - name : Q02
+  - source : select
             s_acctbal,
             s_name,
             n_name,
@@ -46,8 +46,8 @@ exmperiment :
             order by s_acctbal desc, n_name, s_name, p_partkey
             limit 100
           
-  - name:   Q03
-    source: select
+  - name : Q03
+    source : select
             l_orderkey,
             sum(l_extendedprice * (1 - l_discount)) as revenue,
             o_orderdate,
@@ -62,8 +62,8 @@ exmperiment :
             order by revenue desc, o_orderdate
             limit 10;
           
-  - name:   Q04
-    source: select
+  - name : Q04
+    source : select
             o_orderpriority,
             count(*) as order_count
             from orders
@@ -78,8 +78,8 @@ exmperiment :
             group by o_orderpriority
             order by o_orderpriority;
           
-  - name:   Q05
-    source: select
+  - name : Q05
+    source : select
             n_name,
             sum(l_extendedprice * (1 - l_discount)) as revenue
             from customer, orders, lineitem, supplier, nation, region
@@ -95,8 +95,8 @@ exmperiment :
             group by n_name
             order by revenue desc;
           
-  - name:   Q06
-    source: select
+  - name : Q06
+    source : select
             sum(l_extendedprice * l_discount) as revenue
             from lineitem
             where l_shipdate >= date '1994-01-01'
@@ -104,8 +104,8 @@ exmperiment :
               and l_discount between .06 - 0.01 and .06 + 0.01
               and l_quantity < 24;
           
-  - name:   Q07
-    source: select
+  - name : Q07
+    source : select
             supp_nation,
             cust_nation,
             l_year,
@@ -132,8 +132,8 @@ exmperiment :
             group by supp_nation, cust_nation, l_year
             order by supp_nation, cust_nation, l_year;
           
-  - name:   Q08
-    source: select
+  - name : Q08
+    source : select
             o_year,
             sum(case
                 when nation = 'BRAZIL' then volume
@@ -161,8 +161,8 @@ exmperiment :
             group by o_year
             order by o_year;
           
-  - name:   Q09
-    source: select
+  - name : Q09
+    source : select
             nation,
             o_year,
             sum(amount) as sum_profit
@@ -191,8 +191,8 @@ exmperiment :
             group by nation, o_year
             order by nation, o_year desc;
           
-  - name:   Q10
-    source: select
+  - name : Q10
+    source : select
             c_custkey,
             c_name,
             sum(l_extendedprice * (1 - l_discount)) as revenue,
@@ -212,8 +212,8 @@ exmperiment :
             order by revenue desc
             limit 20;
           
-  - name:   Q11
-    source: select
+  - name : Q11
+    source : select
             ps_partkey,
             sum(ps_supplycost * ps_availqty) as value
             from partsupp, supplier, nation
@@ -234,8 +234,8 @@ exmperiment :
                 )
             order by value desc;
           
-  - name:   Q12
-    source: select
+  - name : Q12
+    source : select
             l_shipmode,
             sum(case
                 when o_orderpriority = '1-URGENT'
@@ -259,8 +259,8 @@ exmperiment :
             group by l_shipmode
             order by l_shipmode;
           
-  - name:   Q13
-    source: select
+  - name : Q13
+    source : select
             c_count,
             count(*) as custdist
             from
@@ -281,8 +281,8 @@ exmperiment :
             custdist desc,
             c_count desc;
           
-  - name:   Q14
-    source: select
+  - name : Q14
+    source : select
             100.00 * sum(case
                 when p_type like 'PROMO%'
                         then l_extendedprice * (1 - l_discount)
@@ -293,8 +293,8 @@ exmperiment :
               and l_shipdate >= date '1995-09-01'
               and l_shipdate < date '1995-09-01' + interval '1' month;
           
-  - name:   Q15
-    source: select
+  - name : Q15
+    source : select
             s_suppkey,
             s_name,
             s_address,
@@ -310,8 +310,8 @@ exmperiment :
             )
             order by s_suppkey;
           
-  - name:   Q16
-    source: select
+  - name : Q16
+    source : select
             p_brand,
             p_type,
             p_size,
@@ -332,8 +332,8 @@ exmperiment :
             group by p_brand, p_type, p_size
             order by supplier_cnt desc, p_brand, p_type, p_size;
           
-  - name:   Q17
-    source: select
+  - name : Q17
+    source : select
             sum(l_extendedprice) / 7.0 as avg_yearly
             from lineitem, part
             where p_partkey = l_partkey
@@ -348,8 +348,8 @@ exmperiment :
                         l_partkey = p_partkey
             );
           
-  - name:   Q18
-    source: select
+  - name : Q18
+    source : select
             c_name,
             c_custkey,
             o_orderkey,
@@ -371,8 +371,8 @@ exmperiment :
             order by
             o_totalprice desc, o_orderdate limit 100;
           
-  - name:   Q19
-    source: select
+  - name : Q19
+    source : select
             sum(l_extendedprice* (1 - l_discount)) as revenue
             from lineitem, part
             where
@@ -406,8 +406,8 @@ exmperiment :
                 and l_shipinstruct = 'DELIVER IN PERSON'
             );
           
-  - name:   Q20
-    source: select
+  - name : Q20
+    source : select
             s_name,
             s_address
             from supplier, nation
@@ -442,8 +442,8 @@ exmperiment :
             and n_name = 'CANADA'
             order by s_name;
           
-  - name:   Q21
-    source: select
+  - name : Q21
+    source : select
             s_name,
             count(*) as numwait
             from supplier, lineitem l1, orders, nation
@@ -473,8 +473,8 @@ exmperiment :
             group by s_name
             order by numwait desc, s_name limit 100;
           
-  - name:   Q22
-    source: select
+  - name : Q22
+    source : select
             cntrycode,
             count(*) as numcust,
             sum(c_acctbal) as totacctbal
