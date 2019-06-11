@@ -1,6 +1,7 @@
 experiments :
   - name : Q01
-    source : select
+    source : |
+            select
             l_returnflag,
             l_linestatus,
             sum(l_quantity) as sum_qty,
@@ -17,7 +18,8 @@ experiments :
           order by l_returnflag, l_linestatus;
           
   - name : Q02
-    source : select
+    source : |
+            select
             s_acctbal,
             s_name,
             n_name,
@@ -47,7 +49,8 @@ experiments :
             limit 100
           
   - name : Q03
-    source : select
+    source : |
+            select
             l_orderkey,
             sum(l_extendedprice * (1 - l_discount)) as revenue,
             o_orderdate,
@@ -63,7 +66,8 @@ experiments :
             limit 10;
           
   - name : Q04
-    source : select
+    source : |
+            select
             o_orderpriority,
             count(*) as order_count
             from orders
@@ -79,7 +83,8 @@ experiments :
             order by o_orderpriority;
           
   - name : Q05
-    source : select
+    source : |
+            select
             n_name,
             sum(l_extendedprice * (1 - l_discount)) as revenue
             from customer, orders, lineitem, supplier, nation, region
@@ -96,7 +101,8 @@ experiments :
             order by revenue desc;
           
   - name : Q06
-    source : select
+    source : |
+            select
             sum(l_extendedprice * l_discount) as revenue
             from lineitem
             where l_shipdate >= date '1994-01-01'
@@ -105,7 +111,8 @@ experiments :
               and l_quantity < 24;
           
   - name : Q07
-    source : select
+    source : |
+            select
             supp_nation,
             cust_nation,
             l_year,
@@ -133,7 +140,8 @@ experiments :
             order by supp_nation, cust_nation, l_year;
           
   - name : Q08
-    source : select
+    source : |
+            select
             o_year,
             sum(case
                 when nation = 'BRAZIL' then volume
@@ -162,7 +170,8 @@ experiments :
             order by o_year;
           
   - name : Q09
-    source : select
+    source : |
+            select
             nation,
             o_year,
             sum(amount) as sum_profit
@@ -192,7 +201,8 @@ experiments :
             order by nation, o_year desc;
           
   - name : Q10
-    source : select
+    source : |
+            select
             c_custkey,
             c_name,
             sum(l_extendedprice * (1 - l_discount)) as revenue,
@@ -213,7 +223,8 @@ experiments :
             limit 20;
           
   - name : Q11
-    source : select
+    source : |
+            select
             ps_partkey,
             sum(ps_supplycost * ps_availqty) as value
             from partsupp, supplier, nation
@@ -235,7 +246,8 @@ experiments :
             order by value desc;
           
   - name : Q12
-    source : select
+    source : |
+            select
             l_shipmode,
             sum(case
                 when o_orderpriority = '1-URGENT'
@@ -260,7 +272,8 @@ experiments :
             order by l_shipmode;
           
   - name : Q13
-    source : select
+    source : |
+            select
             c_count,
             count(*) as custdist
             from
@@ -282,7 +295,8 @@ experiments :
             c_count desc;
           
   - name : Q14
-    source : select
+    source : |
+            select
             100.00 * sum(case
                 when p_type like 'PROMO%'
                         then l_extendedprice * (1 - l_discount)
@@ -294,7 +308,8 @@ experiments :
               and l_shipdate < date '1995-09-01' + interval '1' month;
           
   - name : Q15
-    source : select
+    source : |
+            select
             s_suppkey,
             s_name,
             s_address,
@@ -311,7 +326,8 @@ experiments :
             order by s_suppkey;
           
   - name : Q16
-    source : select
+    source : |
+            select
             p_brand,
             p_type,
             p_size,
@@ -333,7 +349,8 @@ experiments :
             order by supplier_cnt desc, p_brand, p_type, p_size;
           
   - name : Q17
-    source : select
+    source : |
+            select
             sum(l_extendedprice) / 7.0 as avg_yearly
             from lineitem, part
             where p_partkey = l_partkey
@@ -349,7 +366,8 @@ experiments :
             );
           
   - name : Q18
-    source : select
+    source : |
+            select
             c_name,
             c_custkey,
             o_orderkey,
@@ -372,7 +390,8 @@ experiments :
             o_totalprice desc, o_orderdate limit 100;
           
   - name : Q19
-    source : select
+    source : |
+            select
             sum(l_extendedprice* (1 - l_discount)) as revenue
             from lineitem, part
             where
@@ -407,7 +426,8 @@ experiments :
             );
           
   - name : Q20
-    source : select
+    source : |
+            select
             s_name,
             s_address
             from supplier, nation
@@ -443,7 +463,8 @@ experiments :
             order by s_name;
           
   - name : Q21
-    source : select
+    source : |
+            select
             s_name,
             count(*) as numwait
             from supplier, lineitem l1, orders, nation
@@ -474,7 +495,8 @@ experiments :
             order by numwait desc, s_name limit 100;
           
   - name : Q22
-    source : select
+    source : |
+            select
             cntrycode,
             count(*) as numcust,
             sum(c_acctbal) as totacctbal
