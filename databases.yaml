@@ -1,0 +1,7 @@
+  databases :
+     - name : SF1
+       remark : "The small test database"
+     - name : SF10
+       remark : "A version for a desktop experimentation"
+     - name : SF100
+       remark : "A version for performance measurements"

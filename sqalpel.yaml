@@ -2,4 +2,5 @@
   projectname : BabyBench
   projecttitle : 'The famous TPC-H SF-1 benchmark'
   documentation : DOCUMENTATION.md
-  experiments : EXPERIMENTS.sql
+  experiments : experiments.yaml
+  databases : databases.yaml
