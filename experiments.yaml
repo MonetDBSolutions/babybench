@@ -16,7 +16,8 @@ experiments :
           where l_shipdate <= date '1998-12-01' - interval '90' day (3)
           group by l_returnflag, l_linestatus
           order by l_returnflag, l_linestatus;
-          
+
+
   - name : Q02
     source : |
             select
@@ -47,7 +48,8 @@ experiments :
             )
             order by s_acctbal desc, n_name, s_name, p_partkey
             limit 100
-          
+
+
   - name : Q03
     source : |
             select
@@ -64,6 +66,7 @@ experiments :
             group by l_orderkey, o_orderdate, o_shippriority
             order by revenue desc, o_orderdate
             limit 10;
+
           
   - name : Q04
     source : |
