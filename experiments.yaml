@@ -12,10 +12,10 @@ experiments :
             avg(l_extendedprice) as avg_price,
             avg(l_discount) as avg_disc,
             count(*) as count_order
-          from lineitem
-          where l_shipdate <= date '1998-12-01' - interval '90' day (3)
-          group by l_returnflag, l_linestatus
-          order by l_returnflag, l_linestatus;
+            from lineitem
+            where l_shipdate <= date '1998-12-01' - interval '90' day (3)
+            group by l_returnflag, l_linestatus
+            order by l_returnflag, l_linestatus;
 
 
   - name : Q02
