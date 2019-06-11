@@ -1,6 +1,6 @@
 # the Sqalpel minimal environment to bootstrap a project
   projectname : BabyBench
   projecttitle : 'The famous TPC-H SF-1 benchmark'
-  documentation : DOCUMENTATION.md
+  documentation : doc/documentation.md
   experiments : experiments.yaml
   databases : databases.yaml
